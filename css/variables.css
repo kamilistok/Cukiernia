@@ -1,0 +1,13 @@
+:root{
+  --bg: #FFFFF0;
+  --muted: #9c8690;
+  --powder-pink: #F6D9E4;
+  --accent: #F0DFA6;
+  --white: #ffffff;
+  --text: #4A3A3F;
+  --contrast: #D4AF37;
+  --radius: 12px;
+  --container: 1400px;
+  --shadow: 0 6px 18px rgba(156,79,99,0.08);
+  --transition: 160ms cubic-bezier(.2,.9,.3,1);
+}

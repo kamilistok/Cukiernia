@@ -3,24 +3,27 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Pastelowa Piekarnia — Torty, Pierniki, Ciasta, Słodkie stoły</title>
+    <title>Cukierniada — Torty, Pierniki, Ciasta, Słodkie stoły</title>
     <meta name="description"
-          content="Pastelowa Piekarnia — torty artystyczne, pierniki, ciasta i słodkie stoły. Zamów tort, skontaktuj się z nami."/>
+          content="Cukierniada — torty artystyczne, pierniki, ciasta i słodkie stoły. Zamów tort, skontaktuj się z nami."/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header-nav.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/hero-feature.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/contact-map.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 <header class="site-header" role="banner">
     <div class="container header-inner">
-        <a class="logo" href="#hero" aria-label="Pastelowa Piekarnia — strona główna">
-            <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="10" fill="#F9E6EB"></circle>
-                <path d="M6 14c1.5-3 6-3 7.5 0" stroke="#8B4B5A" stroke-width="1.2" fill="none"
-                      stroke-linecap="round"></path>
-            </svg>
-            <span class="brand">Pastelowa Piekarnia</span>
+        <a class="logo" href="#hero" aria-label="Cukierniada — strona główna">
+            <span class="brand">Cukierniada</span>
         </a>
 
         <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Otwórz menu">
@@ -81,7 +84,7 @@
     <!-- O NAS -->
     <section id="about" class="section container fade-in">
         <h2>O nas</h2>
-        <p class="lead">Pastelowa Piekarnia powstała z pasji do naturalnych składników i estetyki. Od 2015 roku łączymy
+        <p class="lead">Cukierniada powstała z pasji do naturalnych składników i estetyki. Od 2015 roku łączymy
             tradycyjne receptury z nowoczesnym wzornictwem cukierniczym.</p>
         <p>Tworzymy torty na zamówienie, ręcznie dekorowane pierniki, domowe ciasta i kompleksowe słodkie stoły. Każde
             zamówienie realizujemy z dbałością o smak i detale.</p>
@@ -100,7 +103,11 @@
                 <h3>Torty artystyczne</h3>
                 <p class="lead">Wyjątkowe, ręcznie dekorowane torty na śluby, chrzty i eventy — każdy projekt szyty na miarę.</p>
                 <p>Personalizowane dekoracje, jadalne detale i konsultacja projektowa. Możliwość próbnego smaku i sesji zdjęciowej.</p>
-                <a class="btn btn-small" href="#contact">Zamów tort artystyczny</a>
+                <div class="cta-order">
+                    <a href="torty-artystyczne.html" class="order-btn">
+                        Sprawdź ofertę
+                    </a>
+                </div>
             </div>
         </article>
 
@@ -178,7 +185,7 @@
                 <h3>Telefon</h3>
                 <p>+48 123 456 789</p>
 
-                <div class="map-block" aria-label="Mapa lokalizacji Pastelowa Piekarnia">
+                <div class="map-block" aria-label="Mapa lokalizacji Cukierniada">
                     <div class="map-wrapper">
                         <iframe
                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.042006268798!2d22.56600449280718!3d51.23672125761606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4722570df4d49f3d%3A0x924fd3758624a6f!2s1%20Maja%2013%2C%2020-410%20Lublin!5e0!3m2!1spl!2spl!4v1773242897287!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -188,7 +195,7 @@
                                 allowfullscreen=""
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
-                                title="Mapa: Pastelowa Piekarnia, ul. Słodka 12, Lublin"
+                                title="Mapa: Cukierniada, ul. Słodka 12, Lublin"
                         ></iframe>
                     </div>
                 </div>
@@ -208,7 +215,7 @@
                               placeholder="Napisz czego potrzebujesz (data, rozmiar, smak)..." required></textarea>
 
                     <input type="hidden" name="_subject"
-                           value="Zapytanie z formularza kontaktowego — Pastelowa Piekarnia">
+                           value="Zapytanie z formularza kontaktowego — Cukierniada">
                     <button type="submit" class="btn btn-primary">Wyślij</button>
                     <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
                 </form>
@@ -222,8 +229,8 @@
 
 <footer class="site-footer">
     <div class="container footer-inner">
-        <p>© <span id="year"></span> Pastelowa Piekarnia — Wszystkie prawa zastrzeżone.</p>
-        <p class="muted">Projekt i realizacja: Pastelowa Piekarnia.</p>
+        <p>© <span id="year"></span> Cukierniada — Wszystkie prawa zastrzeżone.</p>
+        <p class="muted">Projekt i realizacja: Cukierniada.</p>
     </div>
 </footer>
 

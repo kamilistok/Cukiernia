@@ -1,0 +1,130 @@
+/* Header / nav */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  transform: translateY(0);
+  transition: transform var(--transition), box-shadow var(--transition);
+  background: var(--white);
+  border-bottom: 1px solid rgba(156,79,99,0.06);
+  backdrop-filter: blur(6px);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 0; }
+.logo{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--contrast); }
+.brand{ font-family:"Merriweather", serif; font-weight:700; font-size:1.05rem; }
+
+/* Nav */
+.nav-toggle{ display: none; align-items:center; justify-content:center; width:44px; height:44px; background:transparent; border:1px solid transparent; border-radius:8px; cursor:pointer; }
+.hamburger{ width:20px; height:2px; background:var(--contrast); position:relative; border-radius:2px; }
+.hamburger::before, .hamburger::after{ content:""; position:absolute; left:0; width:20px; height:2px; background:var(--contrast); border-radius:2px; transition:var(--transition); }
+.hamburger::before{ top:-6px; } .hamburger::after{ top:6px; }
+
+.main-nav{ display:flex; gap:1rem; align-items:center; position:relative; }
+.main-nav a{ color:var(--contrast); text-decoration:none; padding:.45rem .6rem; border-radius:8px; transition:var(--transition); font-weight:600; }
+.main-nav a:hover{ background:var(--accent); }
+.main-nav .cta{ background:none; color:var(--contrast); padding:.45rem .6rem; border-radius:8px; font-weight:600; }
+.main-nav .cta:hover{ background:var(--accent); }
+
+/* Submenu */
+.nav-item{ position:relative; }
+.nav-item .menu-link{ display:inline-flex; align-items:center; gap:.4rem; }
+.nav-item .menu-link::after{ content: "▾"; font-size:0.7rem; margin-left:6px; opacity:0.9; }
+
+/* Desktop dropdown: opacity/visibility + transform to avoid pointer gap */
+.submenu{
+  position:absolute;
+  top:100%;
+  left:0;
+  min-width:220px;
+  background:var(--white);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:8px;
+  gap:6px;
+  flex-direction:column;
+  z-index:80;
+
+  display:flex;
+  opacity:0;
+  visibility:hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  pointer-events:none;
+}
+.submenu li{ list-style:none; }
+.submenu a{ display:block; padding:.5rem .8rem; color:var(--text); border-radius:8px; font-weight:600; text-decoration:none; }
+.submenu a:hover{ background:var(--accent); color:var(--contrast); }
+
+/* Show submenu when class present (JS) or on hover/focus-within for keyboard */
+.nav-item.submenu-open > .submenu,
+.nav-item:focus-within > .submenu{
+  opacity:1;
+  visibility:visible;
+  transform: translateY(0);
+  pointer-events:auto;
+}
+
+/* Mobile nav (kept here for specificity) */
+@media (max-width:899px){
+  .nav-toggle{ display:flex; }
+
+  .main-nav{
+    position:fixed;
+    align-items:flex-start;
+    top:72px; right:16px;
+    width:calc(100% - 32px);
+    max-width:320px;
+    background:var(--white);
+    box-shadow:var(--shadow);
+    border-radius:12px;
+    padding:12px;
+    flex-direction:column;
+    gap:8px;
+    display:none;
+  }
+  .main-nav.open{ display:flex; }
+  .nav-toggle.open .hamburger{ background:transparent; }
+  .nav-toggle.open .hamburger::before{ transform:rotate(45deg) translate(4px,4px); }
+  .nav-toggle.open .hamburger::after{ transform:rotate(-45deg) translate(4px,-4px); }
+
+  /* Mobile submenu: static flow inside menu */
+  .submenu{
+    position:static;
+    display:flex;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    pointer-events:auto;
+    padding:6px 0 0 0;
+    box-shadow:none;
+    background:transparent;
+  }
+  .main-nav .has-submenu > .submenu{ display:none; }
+  .main-nav.open .has-submenu .submenu{ display:flex; }
+  .submenu a{ padding:.6rem .6rem; border-radius:8px; }
+  /* Linki w menu: pełna szerokość i wyrównanie tekstu do lewej */
+    .main-nav a,
+    .main-nav .menu-link{
+      display:block;
+      width:100%;
+      text-align:left;
+      padding-left:.6rem; /* podstawowe odsunięcie dla czytelności */
+    }
+
+    /* Główny element z podmenu (np. Oferta) — nieco wyraźniejszy wskaźnik */
+    .main-nav .has-submenu > .menu-link{
+      padding-left:.6rem;
+    }
+
+    /* Podlista Oferta: lekki indent, by odróżnić od poziomu wyżej */
+    .main-nav .has-submenu .submenu a{
+      padding-left:1.4rem; /* większe odsunięcie tylko dla pozycji w podliście */
+    }
+
+    /* Upewnij się, że wskaźnik rozwijania (▾) nie przesuwa tekstu */
+    .nav-item .menu-link::after{
+      margin-left:auto;
+      transform:translateY(0);
+    }
+  }
+
