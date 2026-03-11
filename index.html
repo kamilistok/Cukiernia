@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Pastelowa Piekarnia — Torty, Pierniki, Ciasta, Słodkie stoły</title>
+    <meta name="description"
+          content="Pastelowa Piekarnia — torty artystyczne, pierniki, ciasta i słodkie stoły. Zamów tort, skontaktuj się z nami."/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" role="banner">
+    <div class="container header-inner">
+        <a class="logo" href="#hero" aria-label="Pastelowa Piekarnia — strona główna">
+            <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="10" fill="#F9E6EB"></circle>
+                <path d="M6 14c1.5-3 6-3 7.5 0" stroke="#8B4B5A" stroke-width="1.2" fill="none"
+                      stroke-linecap="round"></path>
+            </svg>
+            <span class="brand">Pastelowa Piekarnia</span>
+        </a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Otwórz menu">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Główne menu">
+            <a href="index.html#about">O nas</a>
+
+            <div class="nav-item has-submenu">
+                <a href="index.html#oferta" class="menu-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                    Oferta
+                </a>
+
+                <ul class="submenu" role="menu">
+
+                    <li><a href="torty-artystyczne.html">Torty artystyczne</a></li>
+                    <li><a href="torty-klasyczne.html">Torty klasyczne</a></li>
+                    <li><a href="torty-bento.html">Torty bento</a></li>
+
+                    <li role="separator"></li>
+
+                    <li><a href="pierniki.html">Pierniki okolicznościowe</a></li>
+                    <li><a href="ciasta.html">Ciasta</a></li>
+                    <li><a href="slodkie-stoly.html">Słodkie stoły</a></li>
+
+                </ul>
+            </div>
+
+            <a href="index.html#contact" class="cta">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section id="hero" class="hero container">
+        <div class="hero-media" aria-hidden="true">
+            <img
+                    src="https://m.media-amazon.com/images/I/71zLJh9kocL._AC_SL1500_.jpg"
+                    alt="Wnętrze pastelowej cukierni z wystawą tortów"
+                    class="hero-img"
+                    loading="lazy"
+            />
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Słodkie chwile w pudrowym różu</h1>
+            <p class="hero-sub">Ręcznie robione torty, aromatyczne pierniki, domowe ciasta i eleganckie słodkie stoły —
+                wszystko z naturalnych składników.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#torty">Zobacz Torty</a>
+                <a class="btn btn-outline" href="#contact">Skontaktuj się</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- O NAS -->
+    <section id="about" class="section container fade-in">
+        <h2>O nas</h2>
+        <p class="lead">Pastelowa Piekarnia powstała z pasji do naturalnych składników i estetyki. Od 2015 roku łączymy
+            tradycyjne receptury z nowoczesnym wzornictwem cukierniczym.</p>
+        <p>Tworzymy torty na zamówienie, ręcznie dekorowane pierniki, domowe ciasta i kompleksowe słodkie stoły. Każde
+            zamówienie realizujemy z dbałością o smak i detale.</p>
+    </section>
+
+    <!-- OFERTA (z podsekcjami) -->
+    <section id="oferta" class="section container fade-in">
+        <h2>Oferta</h2>
+
+        <!-- NOWE: TORTY ARTYSTYCZNE -->
+        <article id="torty-artystyczne" class="subsection feature">
+            <img src="https://recpak.pl/userdata/public/news/images/11.jpg"
+                 alt="Tort artystyczny z kwiatami i dekoracjami"
+                 class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Torty artystyczne</h3>
+                <p class="lead">Wyjątkowe, ręcznie dekorowane torty na śluby, chrzty i eventy — każdy projekt szyty na miarę.</p>
+                <p>Personalizowane dekoracje, jadalne detale i konsultacja projektowa. Możliwość próbnego smaku i sesji zdjęciowej.</p>
+                <a class="btn btn-small" href="#contact">Zamów tort artystyczny</a>
+            </div>
+        </article>
+
+        <!-- NOWE: TORTY KLASYCZNE -->
+        <article id="torty-klasyczne" class="subsection feature">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=60&auto=format&fit=crop"
+                 alt="Klasyczny tort w tradycyjnym stylu" class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Torty klasyczne</h3>
+                <p class="lead">Tradycyjne smaki i sprawdzone receptury — idealne na rodzinne uroczystości i małe przyjęcia.</p>
+                <p>Opcje rozmiarów, klasyczne kremy i owoce sezonowe. Szybka realizacja i pakowanie na wynos.</p>
+                <a class="btn btn-small" href="#contact">Zamów tort klasyczny</a>
+            </div>
+        </article>
+
+        <!-- NOWE: TORTY BENTO -->
+        <article id="torty-bento" class="subsection feature">
+            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?w=1200&q=60&auto=format&fit=crop"
+                 alt="Mini torty bento w pudełkach" class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Torty bento</h3>
+                <p class="lead">Miniaturowe torty w pudełkach — eleganckie upominki i porcje degustacyjne dla gości.</p>
+                <p>Personalizowane etykiety, zestawy degustacyjne i opcje prezentowe. Świetne jako upominki firmowe i weselne.</p>
+                <a class="btn btn-small" href="#contact">Zamów torty bento</a>
+            </div>
+        </article>
+
+        <!-- PIERNIKI -->
+        <article id="pierniki" class="subsection feature">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=60&auto=format&fit=crop"
+                 alt="Ręcznie dekorowane pierniki okolicznościowe" class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Pierniki okolicznościowe</h3>
+                <p class="lead">Ręcznie dekorowane pierniki — idealne na prezenty, eventy i sezonowe kolekcje.</p>
+                <p>Pakowanie na prezent, zestawy tematyczne, personalizowane etykiety i nadruki jadalnym barwnikiem. Minimalne zamówienie dostępne.</p>
+                <a class="btn btn-small" href="#contact">Zamów pierniki</a>
+            </div>
+        </article>
+
+        <!-- CIASTA -->
+        <article id="ciasta" class="subsection feature">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=60&auto=format&fit=crop"
+                 alt="Domowe ciasta" class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Ciasta</h3>
+                <p class="lead">Ciasta tradycyjne i autorskie kompozycje — serniki, szarlotki, karpatki i sezonowe propozycje.</p>
+                <p>Klasyczne receptury z lokalnych składników: kremowe serniki, aromatyczne szarlotki i limitowane ciasta sezonowe.</p>
+                <a class="btn btn-small" href="#contact">Zamów ciasto</a>
+            </div>
+        </article>
+
+        <!-- SŁODKIE STOŁY -->
+        <article id="slodkie-stoly" class="subsection feature">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=60&auto=format&fit=crop"
+                 alt="Słodki stół na przyjęcie" class="feature-img" loading="lazy">
+            <div class="feature-body">
+                <h3>Słodkie stoły</h3>
+                <p class="lead">Eleganckie aranżacje słodkich stołów na wesela, eventy i przyjęcia firmowe.</p>
+                <p>Projekt stołu, dobór słodkości, dostawa i montaż na miejscu. Oferta dopasowana do liczby gości i stylu wydarzenia.</p>
+                <a class="btn btn-small" href="#contact">Zapytaj o ofertę</a>
+            </div>
+        </article>
+    </section>
+
+
+    <!-- KONTAKT -->
+    <section id="contact" class="contact container fade-in">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Kontakt</h2>
+                <h3>Adres</h3>
+                <p>ul. Słodka 12, 20-001 Lublin</p>
+                <h3>Godziny otwarcia</h3>
+                <p>Pn–Pt: 08:00–18:00<br>Sob: 09:00–14:00<br>Nd: nieczynne</p>
+                <h3>Telefon</h3>
+                <p>+48 123 456 789</p>
+
+                <div class="map-block" aria-label="Mapa lokalizacji Pastelowa Piekarnia">
+                    <div class="map-wrapper">
+                        <iframe
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.042006268798!2d22.56600449280718!3d51.23672125761606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4722570df4d49f3d%3A0x924fd3758624a6f!2s1%20Maja%2013%2C%2020-410%20Lublin!5e0!3m2!1spl!2spl!4v1773242897287!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                width="600"
+                                height="450"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Mapa: Pastelowa Piekarnia, ul. Słodka 12, Lublin"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="contact-form" aria-labelledby="form-title">
+                <h3 id="form-title">Napisz do nas</h3>
+                <p class="muted">Podaj e‑mail i krótką wiadomość — odpowiemy najszybciej jak to możliwe.</p>
+
+                <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+                    <label for="email">Adres e‑mail</label>
+                    <input id="email" name="email" type="email" placeholder="twoj@adres.pl" required
+                           aria-required="true"/>
+
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" rows="5"
+                              placeholder="Napisz czego potrzebujesz (data, rozmiar, smak)..." required></textarea>
+
+                    <input type="hidden" name="_subject"
+                           value="Zapytanie z formularza kontaktowego — Pastelowa Piekarnia">
+                    <button type="submit" class="btn btn-primary">Wyślij</button>
+                    <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+                </form>
+
+                <p class="small muted">Formularz wysyła dane do usługi zewnętrznej (np. Formspree). Zastąp `action`
+                    własnym adresem formularza.</p>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© <span id="year"></span> Pastelowa Piekarnia — Wszystkie prawa zastrzeżone.</p>
+        <p class="muted">Projekt i realizacja: Pastelowa Piekarnia.</p>
+    </div>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
