@@ -1,10 +1,10 @@
-@media (min-width:600px){
+@media (min-width:450px){
   .hero-media{ height:420px; }
   .hero-content{ padding:1.6rem; }
   .hero-title{ font-size:1.9rem; }
   .feature{ flex-direction:row; gap:1.6rem; align-items:flex-start; }
   .feature-img{ width:48%; height:320px; }
-  .feature-body{ width:52%; }
+  .feature-body{ width:100%; }
   .cards{ grid-template-columns: repeat(3,1fr); }
   .contact-grid{ grid-template-columns: 1fr 420px; }
 }

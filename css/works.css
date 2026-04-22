@@ -28,29 +28,31 @@
     }
 }
 
+/* zamiast padding-top:75% */
 .worksAspectRatio {
-    position: relative;
-    width: 100%;
-    padding-top: 75%;
-    overflow: hidden;
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    background: #fff;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3; /* szerokość : wysokość = 2:3 -> ramka jest wyższa niż szeroka */
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  background: #fff;
 }
 
-
+/* obraz wewnątrz kontenera */
 .worksImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    border-radius: 14px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* pokaż cały obraz bez przycinania */
+  object-position: center top;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  border-radius: 14px;
 }
 
+/* delikatny efekt hover bez silnego przybliżenia */
 .worksImage:hover {
-    opacity: 0.85;
-    transform: scale(1.04);
+  transform: scale(1.02);
+  opacity: 0.98;
 }

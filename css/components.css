@@ -14,8 +14,16 @@ a.btn:hover{ transform:translateY(-3px); box-shadow:var(--shadow); }
 
 /* GALERIA */
 .gallery{ display:grid; grid-template-columns:repeat(1, 1fr); gap:20px; }
-.gallery img{ width:100%; height:220px; object-fit:contain; border-radius:12px; }
-
+/* zamiast stałej wysokości 220px */
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3; /* ramka wyższa niż szeroka */
+  object-fit: contain; /* lub 'cover' jeśli wolisz wypełnienie kosztem przycinania */
+  object-position: center;
+  border-radius: 12px;
+  background-color: #fafafa; /* wypełnienie gdy object-fit: contain zostawia puste przestrzenie */
+}
 .breadcrumb{ margin-bottom:15px; color:var(--muted); font-size:14px; }
 .breadcrumb a{ color:var(--contrast); text-decoration:none; }
 
