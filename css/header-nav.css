@@ -10,7 +10,45 @@
   backdrop-filter: blur(6px);
 }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 0; }
-.logo{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--contrast); }
+/* Logo: obraz po lewej i stały złoty kolor nazwy */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--contrast); /* złoty kolor z variables.css */
+}
+
+/* Tekst marki dziedziczy kolor i nie zmienia się w stanach linku */
+.logo .brand {
+  color: currentColor !important;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* Wymuś złoty kolor we wszystkich stanach linku */
+.logo:link,
+.logo:visited,
+.logo:hover,
+.logo:active,
+.logo:focus {
+  color: var(--contrast) !important;
+}
+
+/* Obrazek (powtórka dla pewności) */
+.logo img {
+  display: block;
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* większe ekrany */
+@media (min-width: 900px) {
+  .logo img { height: 64px; }
+}
 .brand{ font-family:"Merriweather", serif; font-weight:700; font-size:1.05rem; }
 
 /* Nav */

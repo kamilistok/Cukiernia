@@ -1,11 +1,3 @@
-/* script.js
-   - toggle menu mobilnego
-   - fade-in przy przewijaniu (IntersectionObserver)
-   - płynne przewijanie z offsetem (sticky header)
-   - poprawione zachowanie nagłówka przy scrollowaniu w górę
-   - walidacja i wysyłka formularza kontaktowego do Formspree
-*/
-
 document.addEventListener('DOMContentLoaded', function () {
   // Rok w stopce
   const yearEl = document.getElementById('year');
