@@ -166,3 +166,90 @@
     }
   }
 
+  .logo {
+    flex: 0 0 auto; /* nie rośnie, nie kurczy się */
+    display: inline-flex; /* zachowujemy istniejące ustawienie */
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Jeśli masz element .social obok .logo, też go zablokuj */
+  .social {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Zapobiega łamaniu nazwy marki, które może przesuwać układ */
+  .logo .brand {
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  /* Ograniczenie maksymalnej szerokości obrazka logo, by nie „pchał” całego bloku na środek */
+  .logo img {
+    max-width: 260px; /* dopasuj jeśli logo jest mniejsze; zapobiega nadmiernemu rozrostowi */
+    height: 48px; /* zachowujemy dotychczasową wysokość; media query poniżej ją nadpisze */
+    width: auto;
+    display: block;
+  }
+
+  /* Wymuszenie, żeby menu trzymało się prawej strony */
+  .main-nav {
+    margin-left: auto; /* kluczowe: menu po prawej, logo pozostaje po lewej */
+  }
+
+  /* Lokalna korekta kontenera nagłówka: preferujemy flex-start, ale nie psujemy space-between na mniejszych ekranach */
+  @media (min-width: 900px) {
+    .header-inner {
+      justify-content: flex-start; /* lewa grupa + menu z margin-left:auto */
+      gap: 16px;
+    }
+  }
+
+  /* Zachowujemy istniejące reguły mobilne bez zmian */
+  @media (max-width: 899px) {
+    /* mobilne reguły z Twojego pliku pozostają nadrzędne */
+    .logo img { height: 48px; max-width: 200px; }
+    .social a { width: 36px; height: 36px; }
+  }
+
+  /* --- Social icons use theme contrast color --- */
+  .social a {
+    color: var(--contrast); /* ikona i ewentualny <i> odziedziczą kolor */
+  }
+
+  /* Dla inline SVG: wymuszamy użycie currentColor */
+  .social a svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    vertical-align: middle;
+  }
+
+  /* Wszystkie elementy wewnątrz SVG (path, circle, rect, etc.) użyją currentColor */
+  .social a svg * {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+
+  /* Dla ikon z Font Awesome lub <i> */
+  .social a i,
+  .social a .fa,
+  .social a .fab {
+    color: currentColor;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Hover: zachowujemy dotychczasowy efekt tła, kolor ikon pozostaje kontrastowy */
+  .social a:hover {
+    background: rgba(0,0,0,0.05);
+    color: var(--contrast);
+  }
+
+  /* Jeśli jakieś SVG ma twardo wpisany fill="#000", nadpisz go jako ostatnia deska ratunku */
+  .social a svg [fill] {
+    fill: currentColor !important;
+  }
