@@ -1,0 +1,13 @@
+# Cukierniada — Robots.txt
+# Allow all crawlers to index the site
+
+User-agent: *
+Allow: /
+Disallow: /dist/
+Disallow: *.pdf$
+
+# Specify sitemap location
+Sitemap: https://cukiernialublin.pl/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1
