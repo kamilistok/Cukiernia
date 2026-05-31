@@ -1,5 +1,5 @@
 {
-  "name": "Cukiernia Cukierniada Lublin",
+  "name": "Cukiernia Lublin - Cukierniada",
   "short_name": "Cukierniada",
   "description": "Cukiernia Lublin - torty artystyczne, pierniki, ciasta i słodkie stoły",
   "start_url": "https://cukiernialublin.pl/",
@@ -10,13 +10,13 @@
   "icons": [
     {
       "src": "img/logo/logo.png",
-      "sizes": "512x512",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "img/logo/logo.png",
-      "sizes": "512x512",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
     }
