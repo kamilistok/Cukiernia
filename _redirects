@@ -1,0 +1,4 @@
+# Redirect index.html to root to fix canonical duplicate issue
+/index.html / 301
+
+
