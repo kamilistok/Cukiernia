@@ -1,0 +1,19 @@
+# Local development files
+.htaccess
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.sublime-project
+.sublime-workspace
+
+# OS
+Thumbs.db
+
+# Dependencies (if using any)
+node_modules/
+
