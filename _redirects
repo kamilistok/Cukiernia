@@ -1,4 +1,12 @@
+# Netlify redirect rules to ensure a single permanent redirect to the canonical site
+# - Force HTTP -> HTTPS and WWW -> non-WWW in one step to avoid redirect chains
+# - Keep the existing redirect from /index.html -> /
+
+# Redirect any request to http://www.example or https://www.example to https://cukiernialublin.pl
+https://www.cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
+http://www.cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
+http://cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
+
 # Redirect index.html to root to fix canonical duplicate issue
 /index.html / 301
-
 
