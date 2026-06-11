@@ -10,5 +10,6 @@ https://cukierniada.pl/* https://cukiernialublin.pl/:splat 301!
 http://cukierniada.pl/* https://cukiernialublin.pl/:splat 301!
 
 # Redirect index.html to root to fix canonical duplicate issue
+/index.html / 301!
 /index.html / 301
 
