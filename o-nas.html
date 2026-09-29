@@ -7,6 +7,7 @@
     <link rel="apple-touch-icon" href="img/logo/logo.png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#f4d89f">
+    <meta name="robots" content="index,follow">
     <title>O nas — Cukierniada Lublin</title>
     <meta name="description" content="Poznaj Cukierniadę — rzemieślniczą pracownię tortów i pierników w Lublinie. Pasja do rzemiosła, składniki najwyższej jakości, personalizowane torty.">
     <link rel="canonical" href="https://cukiernialublin.pl/o-nas.html">
@@ -37,42 +38,40 @@
      <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Bakery",
-      "name": "Cukierniada",
-      "image": "https://cukiernialublin.pl/img/logo/logo.png",
-      "telephone": "+48 798 637 063",
-      "url": "https://cukiernialublin.pl",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ul. 1 Maja 13",
-        "addressLocality": "Lublin",
-        "postalCode": "20-410",
-        "addressCountry": "PL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.23672125761606,
-        "longitude": 22.56600449280718
-      },
-      "openingHoursSpecification": [
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
+          "@type": "Question",
+          "name": "Jak zamówić tort w Cukierniadzie w Lublinie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Możesz skontaktować się ze mną poprzez formularz kontaktowy na stronie, wybrać numer telefonu +48 798 637 063 lub odwiedzić nas osobiście w pracowni. Chętnie pomogę w wyborze tortu na każdą okazję!"
+          }
         },
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday"],
-          "opens": "10:00",
-          "closes": "14:00"
+          "@type": "Question",
+          "name": "Ile czasu potrzeba na przygotowanie tortu na zamówienie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Torty artystyczne i klasyczne przygotowujemy na zamówienie z minimum tygodniowym wyprzedzeniem. Torty ekspresowe i małe realizacje mogą być gotowe nawet w 3 godziny tego samego dnia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakie są godziny otwarcia cukierni?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nasza pracownia w Lublinie jest otwarta od wtorku do piątku w godzinach 9:00–17:00 oraz w sobotę 10:00–14:00. W niedzielę pracownia jest nieczynna."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mogę zamówić tort na wyjątkowy motyw lub w kształcie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak! Specjalizuję się w tortach artystycznych i personalizowanych projektach. Wspólnie dobierzemy temat, kolory, smak oraz dekoracje, a ja przygotuję unikatową realizację."
+          }
         }
-      ],
-      "servesCuisine": ["Patisserie","Cakes","Desserts","Bakery"],
-      "priceRange": "$$",
-      "sameAs": [
-        "https://facebook.com/profile.php?id=61568666581040",
-        "https://instagram.com/cukierniada/"
       ]
     }
     </script>
@@ -127,7 +126,6 @@
                 </ul>
             </div>
             <a href="index.html#contact" class="cta">Kontakt</a>
-<!--            <a href="promocje.html" class="cta">Promocje</a>-->
         </nav>
     </div>
 </header>
@@ -215,6 +213,30 @@
                 Chcę zamówić tort
             </a>
         </div>
+
+        <section class="section container" aria-labelledby="faq-title" style="padding-top: 1rem;">
+            <h3 id="faq-title">Najczęstsze pytania</h3>
+
+            <details open>
+                <summary>Jak zamówić tort w Cukierniadzie w Lublinie?</summary>
+                <p>Możesz skontaktować się z nami przez formularz kontaktowy na stronie, telefon +48 798 637 063 lub odwiedzić nas osobiście w pracowni. Chętnie pomogę dobrać odpowiedni tort, smak i dekorację do okazji.</p>
+            </details>
+
+            <details>
+                <summary>Ile czasu potrzeba na przygotowanie tortu na zamówienie?</summary>
+                <p>Najczęściej torty artystyczne i klasyczne realizujemy z minimum tygodniowym wyprzedzeniem. W przypadku mniejszych realizacji i tortów ekspresowych możliwe jest wykonanie nawet w 3 godziny od zgłoszenia, zależnie od dostępności i stopnia skomplikowania projektu.</p>
+            </details>
+
+            <details>
+                <summary>Jakie są godziny otwarcia cukierni?</summary>
+                <p>Pracownia jest czynna od wtorku do piątku w godzinach 9:00–17:00 oraz w sobotę 10:00–14:00. W poniedziałek i niedziele pracownia pozostaje nieczynna.</p>
+            </details>
+
+            <details>
+                <summary>Czy mogę zamówić tort na wyjątkowy motyw lub w kształcie?</summary>
+                <p>Tak! Specjalizujemy się w projektach artystycznych i personalizowanych. Wspólnie ustalimy temat, kolory, smak i detale, a ja przygotuję unikatową realizację dopasowaną do okazji.</p>
+            </details>
+        </section>
 
     </section>
 
