@@ -1,4 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const lazyImages = document.querySelectorAll('.worksImage');
+  lazyImages.forEach(img => {
+    if (!img.dataset.src) {
+      img.dataset.src = img.getAttribute('src') || '';
+    }
+    if (img.dataset.src) {
+      img.setAttribute('src', 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E');
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    }
+  });
+
+  const lazyLoadTargets = document.querySelectorAll('.worksImage[data-src]');
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const img = entry.target;
+        const src = img.getAttribute('data-src');
+        if (src) {
+          img.src = src;
+          img.removeAttribute('data-src');
+        }
+
+        observer.unobserve(img);
+      });
+    }, { rootMargin: '200px 0px' });
+
+    lazyLoadTargets.forEach(img => imageObserver.observe(img));
+  } else {
+    lazyLoadTargets.forEach(img => {
+      const src = img.getAttribute('data-src');
+      if (src) {
+        img.src = src;
+        img.removeAttribute('data-src');
+      }
+    });
+  }
+
   // Rok w stopce
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
