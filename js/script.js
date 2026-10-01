@@ -58,6 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Toggle menu mobilnego
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.getElementById('main-nav');
+  const closeMobileMenu = () => {
+    if (!navToggle || !mainNav) return;
+    navToggle.classList.remove('open');
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', () => {
       const isOpen = navToggle.classList.toggle('open');
@@ -66,112 +73,115 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Zamknij menu po kliknięciu linku (na urządzeniach mobilnych)
-mainNav.addEventListener('click', (e) => {
-  // zamykanie TYLKO na mobile
-  if (window.innerWidth < 900) {
-    if (e.target.tagName === 'A' && navToggle.classList.contains('open')) {
-      navToggle.classList.remove('open');
-      mainNav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    }
-  }
-});
-
-// Delayed close for desktop dropdowns to avoid pointer gap
-(function () {
-  const DESKTOP_BREAKPOINT = 900;
-  const DELAY_MS = 220; // opóźnienie przed zamknięciem (możesz zmniejszyć/powiększyć)
-
-  const submenuItems = document.querySelectorAll('.nav-item.has-submenu');
-  const timers = new WeakMap();
-
-  function isDesktop() {
-    return window.innerWidth >= DESKTOP_BREAKPOINT;
-  }
-
-  submenuItems.forEach(item => {
-    const link = item.querySelector('.menu-link');
-    const submenu = item.querySelector('.submenu');
-
-    if (!link || !submenu) return;
-
-    // mouseenter: anuluj timer i otwórz
-    item.addEventListener('mouseenter', () => {
-      if (!isDesktop()) return;
-      const t = timers.get(item);
-      if (t) {
-        clearTimeout(t);
-        timers.delete(item);
+    mainNav.addEventListener('click', (e) => {
+      if (window.innerWidth < 900) {
+        if (e.target.tagName === 'A' && navToggle.classList.contains('open')) {
+          closeMobileMenu();
+        }
       }
-      item.classList.add('submenu-open');
-      link.setAttribute('aria-expanded', 'true');
     });
 
-    // mouseleave: ustaw timer na zamknięcie
-    item.addEventListener('mouseleave', () => {
-      if (!isDesktop()) return;
-      const t = setTimeout(() => {
-        item.classList.remove('submenu-open');
-        link.setAttribute('aria-expanded', 'false');
-        timers.delete(item);
-      }, DELAY_MS);
-      timers.set(item, t);
-    });
-
-    // Jeśli kursor wejdzie do samego submenu, anuluj timer (bezpieczne)
-    submenu.addEventListener('mouseenter', () => {
-      if (!isDesktop()) return;
-      const t = timers.get(item);
-      if (t) {
-        clearTimeout(t);
-        timers.delete(item);
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 900) {
+        closeMobileMenu();
       }
-      item.classList.add('submenu-open');
-      link.setAttribute('aria-expanded', 'true');
     });
 
-    // opuszczenie submenu -> ten sam timer
-    submenu.addEventListener('mouseleave', () => {
-      if (!isDesktop()) return;
-      const t = setTimeout(() => {
-        item.classList.remove('submenu-open');
-        link.setAttribute('aria-expanded', 'false');
-        timers.delete(item);
-      }, DELAY_MS);
-      timers.set(item, t);
-    });
+    // Delayed close for desktop dropdowns to avoid pointer gap
+    (function () {
+      const DESKTOP_BREAKPOINT = 900;
+      const DELAY_MS = 220; // opóźnienie przed zamknięciem (możesz zmniejszyć/powiększyć)
 
-    // keyboard accessibility: focus/blur już obsługujesz przez :focus-within w CSS,
-    // ale upewnij się, że aria-expanded jest zsynchronizowane przy focusie:
-    item.addEventListener('focusin', () => {
-      link.setAttribute('aria-expanded', 'true');
-      item.classList.add('submenu-open');
-    });
-    item.addEventListener('focusout', (e) => {
-      // jeśli focus nadal wewnątrz elementu, nie zamykaj
-      if (item.contains(document.activeElement)) return;
-      link.setAttribute('aria-expanded', 'false');
-      item.classList.remove('submenu-open');
-    });
-  });
+      const submenuItems = document.querySelectorAll('.nav-item.has-submenu');
+      const timers = new WeakMap();
 
-  // Przy zmianie rozmiaru ekranu anuluj timery i usuń klasy (przejście mobile/desktop)
-  window.addEventListener('resize', () => {
-    submenuItems.forEach(item => {
-      const t = timers.get(item);
-      if (t) {
-        clearTimeout(t);
-        timers.delete(item);
+      function isDesktop() {
+        return window.innerWidth >= DESKTOP_BREAKPOINT;
       }
-      // na mobile nie chcemy mieć desktopowej klasy
-      if (!isDesktop()) {
-        item.classList.remove('submenu-open');
+
+      submenuItems.forEach(item => {
         const link = item.querySelector('.menu-link');
-        if (link) link.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-})();
+        const submenu = item.querySelector('.submenu');
+
+        if (!link || !submenu) return;
+
+        // mouseenter: anuluj timer i otwórz
+        item.addEventListener('mouseenter', () => {
+          if (!isDesktop()) return;
+          const t = timers.get(item);
+          if (t) {
+            clearTimeout(t);
+            timers.delete(item);
+          }
+          item.classList.add('submenu-open');
+          link.setAttribute('aria-expanded', 'true');
+        });
+
+        // mouseleave: ustaw timer na zamknięcie
+        item.addEventListener('mouseleave', () => {
+          if (!isDesktop()) return;
+          const t = setTimeout(() => {
+            item.classList.remove('submenu-open');
+            link.setAttribute('aria-expanded', 'false');
+            timers.delete(item);
+          }, DELAY_MS);
+          timers.set(item, t);
+        });
+
+        // Jeśli kursor wejdzie do samego submenu, anuluj timer (bezpieczne)
+        submenu.addEventListener('mouseenter', () => {
+          if (!isDesktop()) return;
+          const t = timers.get(item);
+          if (t) {
+            clearTimeout(t);
+            timers.delete(item);
+          }
+          item.classList.add('submenu-open');
+          link.setAttribute('aria-expanded', 'true');
+        });
+
+        // opuszczenie submenu -> ten sam timer
+        submenu.addEventListener('mouseleave', () => {
+          if (!isDesktop()) return;
+          const t = setTimeout(() => {
+            item.classList.remove('submenu-open');
+            link.setAttribute('aria-expanded', 'false');
+            timers.delete(item);
+          }, DELAY_MS);
+          timers.set(item, t);
+        });
+
+        // keyboard accessibility: focus/blur już obsługujesz przez :focus-within w CSS,
+        // ale upewnij się, że aria-expanded jest zsynchronizowane przy focusie:
+        item.addEventListener('focusin', () => {
+          link.setAttribute('aria-expanded', 'true');
+          item.classList.add('submenu-open');
+        });
+        item.addEventListener('focusout', (e) => {
+          // jeśli focus nadal wewnątrz elementu, nie zamykaj
+          if (item.contains(document.activeElement)) return;
+          link.setAttribute('aria-expanded', 'false');
+          item.classList.remove('submenu-open');
+        });
+      });
+
+      // Przy zmianie rozmiaru ekranu anuluj timery i usuń klasy (przejście mobile/desktop)
+      window.addEventListener('resize', () => {
+        submenuItems.forEach(item => {
+          const t = timers.get(item);
+          if (t) {
+            clearTimeout(t);
+            timers.delete(item);
+          }
+          // na mobile nie chcemy mieć desktopowej klasy
+          if (!isDesktop()) {
+            item.classList.remove('submenu-open');
+            const link = item.querySelector('.menu-link');
+            if (link) link.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
 
   }
 
@@ -213,9 +223,7 @@ mainNav.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (navToggle && mainNav && navToggle.classList.contains('open')) {
-      navToggle.classList.remove('open');
-      mainNav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
+      closeMobileMenu();
     }
 
     scrollToHashTarget(href, false);
@@ -262,95 +270,8 @@ mainNav.addEventListener('click', (e) => {
     lastScrollY = curr;
   };
 
-  let raf = null;
-  const onScroll = () => {
-    if (raf === null) {
-      raf = requestAnimationFrame(() => {
-        update();
-        raf = null;
-      });
-    }
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Początkowy stan
   update();
+  window.addEventListener('scroll', update, { passive: true });
 })();
 
-  /* -------------------------------
-     Formularz kontaktowy – walidacja i wysyłka
-     ------------------------------- */
-  const form = document.getElementById('contact-form');
-  const emailInput = document.getElementById('email');
-  const messageInput = document.getElementById('message');
-  const messageEl = document.getElementById('form-message');
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    return re.test(String(email).toLowerCase());
-  }
-
-  if (form && emailInput && messageInput && messageEl) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const email = emailInput.value.trim();
-      const message = messageInput.value.trim();
-      messageEl.textContent = '';
-      messageEl.style.color = '';
-
-      if (!email) {
-        messageEl.textContent = 'Proszę podać adres e-mail.';
-        messageEl.style.color = '#c0392b';
-        emailInput.focus();
-        return;
-      }
-      if (!validateEmail(email)) {
-        messageEl.textContent = 'Nieprawidłowy format adresu e-mail.';
-        messageEl.style.color = '#c0392b';
-        emailInput.focus();
-        return;
-      }
-      if (!message) {
-        messageEl.textContent = 'Proszę wpisać krótką wiadomość.';
-        messageEl.style.color = '#c0392b';
-        messageInput.focus();
-        return;
-      }
-
-      messageEl.textContent = 'Wysyłanie...';
-      messageEl.style.color = '#8B4B5A';
-
-      const action = form.getAttribute('action');
-      if (!action) {
-        messageEl.textContent = 'Brak adresu formularza (atrybut action).';
-        messageEl.style.color = '#c0392b';
-        return;
-      }
-
-      const formData = new FormData(form);
-      fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            messageEl.textContent = 'Dziękujemy! Wiadomość została wysłana.';
-            messageEl.style.color = '#2d6a4f';
-            form.reset();
-          } else {
-            return response.json().then(data => {
-              throw new Error(data?.error || 'Błąd serwera');
-            });
-          }
-        })
-        .catch(err => {
-          messageEl.textContent = 'Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.';
-          messageEl.style.color = '#c0392b';
-          console.error('Form submit error:', err);
-        });
-    });
-  }
 });
