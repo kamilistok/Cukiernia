@@ -197,7 +197,9 @@
 
 @media (max-width: 899px) {
   .site-header {
-    overflow-x: clip;
+    overflow: visible;
+    overflow-x: visible;
+    overflow-y: visible;
   }
 
   .header-inner {
@@ -237,6 +239,9 @@
     display: flex;
     flex: 0 0 auto;
     margin-left: 0;
+    position: relative;
+    z-index: 70;
+    touch-action: manipulation;
   }
 
   .main-nav {
@@ -256,6 +261,11 @@
     overflow-y: auto;
     overflow-x: hidden;
     max-height: calc(100vh - 90px);
+    z-index: 80;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
   }
 
   .main-nav.open { display: flex; }
@@ -359,4 +369,22 @@
 
 .social a svg [fill] {
   fill: currentColor !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 899px) {
+    .site-header {
+      overflow: visible;
+      overflow-x: visible;
+      overflow-y: visible;
+    }
+
+    .main-nav {
+      position: fixed;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      z-index: 120;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }
