@@ -1,15 +1,21 @@
 # Netlify redirect rules to ensure a single permanent redirect to the canonical site
 # - Force HTTP -> HTTPS and WWW -> non-WWW in one step to avoid redirect chains
-# - Keep the existing redirect from /index.html -> /
+# - Use extensionless URLs as the canonical versions of HTML pages
 
-# Redirect any request to http://www.example or https://www.example to https://cukiernialublin.pl
+# Redirect legacy HTML URLs directly to their canonical HTTPS URLs on the primary domain
+/index.html https://cukiernialublin.pl/ 301!
+/o-nas.html https://cukiernialublin.pl/o-nas 301!
+/torty-artystyczne.html https://cukiernialublin.pl/torty-artystyczne 301!
+/torty-klasyczne.html https://cukiernialublin.pl/torty-klasyczne 301!
+/torty-bento.html https://cukiernialublin.pl/torty-bento 301!
+/torty-z-nadrukiem.html https://cukiernialublin.pl/torty-z-nadrukiem 301!
+/pierniki-okolicznosciowe.html https://cukiernialublin.pl/pierniki-okolicznosciowe 301!
+/ciasta.html https://cukiernialublin.pl/ciasta 301!
+/slodka-oprawa-przyjec.html https://cukiernialublin.pl/slodka-oprawa-przyjec 301!
+
+# Redirect alternate hosts and HTTP to the canonical HTTPS host
 https://www.cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
 http://www.cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
 http://cukiernialublin.pl/* https://cukiernialublin.pl/:splat 301!
 https://cukierniada.pl/* https://cukiernialublin.pl/:splat 301!
 http://cukierniada.pl/* https://cukiernialublin.pl/:splat 301!
-
-# Redirect index.html to root to fix canonical duplicate issue
-/index.html / 301!
-/index.html / 301
-
